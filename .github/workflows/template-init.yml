@@ -1,7 +1,7 @@
 name: template-init
 
 # One-time setup for a repo created with "Use this template". It renames the template's
-# placeholder name to this repo's name, fills in the repo description, commits, deletes
+# placeholder name to this repo's name, fills in the repo description, creates the `major-update` label, commits, deletes
 # itself and re-runs CI on the result. In the template repo itself it does nothing.
 on:
   push:
@@ -11,6 +11,7 @@ on:
 permissions:
   contents: write
   actions: write
+  issues: write
   pages: write
 
 concurrency:
