@@ -1,6 +1,6 @@
 # template-web-nuxt
 
-Nuxt 4 web app template: Nuxt UI, ESLint and Prettier, vitest, Firebase Hosting, mise, lefthook, CI and a VitePress docs site.
+Nuxt app template with CI, Firebase and docs.
 
 ## Install
 

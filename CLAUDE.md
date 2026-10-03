@@ -4,7 +4,7 @@ Guidance for AI agents (and humans) working in the **template-web-nuxt** repo.
 
 ## What template-web-nuxt is
 
-Nuxt 4 web app template: Nuxt UI, ESLint and Prettier, vitest, Firebase Hosting, mise, lefthook, CI and a VitePress docs site. A Nuxt 4 app with `@nuxt/ui` (Tailwind 4), statically generated and hosted on Firebase Hosting.
+Nuxt app template with CI, Firebase and docs. A Nuxt 4 app with `@nuxt/ui` (Tailwind 4), statically generated and hosted on Firebase Hosting.
 
 ## Commands
 
