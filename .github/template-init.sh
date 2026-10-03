@@ -23,7 +23,7 @@ export OLD_NAME OLD_SNAKE OLD_DESC OLD_YEAR
 export NEW_NAME="$new_name" NEW_SNAKE="${new_name//-/_}" NEW_DESC="$new_desc" NEW_YEAR="$(date +%Y)"
 
 # Text files only. Lockfiles are rewritten consistently, so frozen installs keep working.
-git ls-files -z | xargs -0 -r grep -IlZF -e "$OLD_NAME" -e "$OLD_SNAKE" -e "$OLD_DESC" -e "(c) $OLD_YEAR" \
+git ls-files -z -- . ':!.github/workflows' | xargs -0 -r grep -IlZF -e "$OLD_NAME" -e "$OLD_SNAKE" -e "$OLD_DESC" -e "(c) $OLD_YEAR" \
   | xargs -0 -r perl -pi -e '
       s/\Q$ENV{OLD_DESC}\E/$ENV{NEW_DESC}/g;
       s/\Q$ENV{OLD_SNAKE}\E/$ENV{NEW_SNAKE}/g;
