@@ -1,0 +1,30 @@
+min_version = "2026.9.0"
+
+[tools]
+node = "24.21.0"
+pnpm = "12.8.2"
+
+[env]
+# Run project binaries (nuxt, eslint, prettier, vitest, firebase) directly, without `pnpm exec`.
+_.path = ["{{config_root}}/node_modules/.bin"]
+_.file = ".env"
+
+[tasks.install]
+description = "Install dependencies (frozen lockfile)"
+run = "pnpm install --frozen-lockfile"
+
+[tasks.check]
+description = "ESLint + Prettier + typecheck, as CI runs them"
+run = ["eslint .", "prettier --check .", "nuxt typecheck"]
+
+[tasks.fmt]
+description = "Format and auto-fix"
+run = ["prettier --write .", "eslint --fix ."]
+
+[tasks.test]
+description = "Run the unit tests"
+run = "vitest run"
+
+[tasks.build]
+description = "Static build into .output/public"
+run = "nuxt generate"

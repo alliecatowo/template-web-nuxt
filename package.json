@@ -1,0 +1,45 @@
+{
+  "name": "template-web-nuxt",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nuxt 4 web app template: Nuxt UI, ESLint and Prettier, vitest, Firebase Hosting, mise, lefthook, CI and a VitePress docs site.",
+  "license": "MIT",
+  "author": "Allison Coleman",
+  "type": "module",
+  "packageManager": "pnpm@12.8.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prepare": "lefthook install",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@nuxt/ui": "4.11.3",
+    "nuxt": "4.5.2",
+    "tailwindcss": "4.3.3",
+    "vue": "3.5.43"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "21.2.3",
+    "@commitlint/config-conventional": "21.2.3",
+    "@iconify-json/lucide": "^1.2.138",
+    "@nuxt/eslint": "1.17.0",
+    "@types/node": "^24.0.0",
+    "eslint": "10.12.0",
+    "firebase-tools": "15.32.1",
+    "lefthook": "2.1.16",
+    "prettier": "3.9.9",
+    "typescript": "6.0.3",
+    "vitest": "5.0.3",
+    "vue-tsc": "3.3.12"
+  }
+}

@@ -1,0 +1,16 @@
+pre-commit:
+  commands:
+    prettier:
+      glob: '*.{vue,ts,js,mjs,json,css,yml,yaml}'
+      run: prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
+    eslint:
+      glob: '*.{vue,ts,js,mjs}'
+      run: eslint --fix {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  skip: [merge, rebase]
+  commands:
+    commitlint:
+      run: commitlint --edit {1}

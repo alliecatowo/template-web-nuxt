@@ -1,0 +1,30 @@
+name: template-init
+
+# One-time setup for a repo created with "Use this template". It renames the template's
+# placeholder name to this repo's name, fills in the repo description, commits, deletes
+# itself and re-runs CI on the result. In the template repo itself it does nothing.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+  pages: write
+
+concurrency:
+  group: template-init
+  cancel-in-progress: false
+
+jobs:
+  init:
+    if: ${{ !github.event.repository.is_template }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: bash .github/template-init.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          REPO_DESC: ${{ github.event.repository.description }}

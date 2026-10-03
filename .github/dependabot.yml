@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      dev-tools:
+        dependency-type: development
+    ignore:
+      # typescript-eslint (via @nuxt/eslint) only supports TypeScript <6.1 and throws on 7.
+      # Drop this once typescript-eslint ships TS 7 support.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: npm
+    directory: /docs
+    schedule:
+      interval: weekly

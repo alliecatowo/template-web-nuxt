@@ -1,0 +1,11 @@
+.nuxt
+.output
+.data
+dist
+node_modules
+pnpm-lock.yaml
+*.md
+.github
+.claude
+CHANGELOG.md
+docs

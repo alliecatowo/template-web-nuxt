@@ -1,0 +1,41 @@
+# Environment
+.env*
+!.env.example
+
+# MCP local config
+.mcp.json
+
+# Logs
+*.log
+firebase-debug.log
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+target/
+coverage/
+*.tsbuildinfo
+
+# Python / direnv
+.venv/
+.direnv/
+
+# OS
+.DS_Store
+
+# Claude Code: worktrees and machine-local settings stay out of git
+.claude/worktrees/
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Nuxt / Firebase
+.nuxt/
+.output/
+.data/
+.firebase/
+.eslintcache
+
+# VitePress
+docs/.vitepress/cache/
+docs/.vitepress/dist/

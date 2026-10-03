@@ -1,0 +1,56 @@
+name: Deploy
+
+# Firebase Hosting: a preview channel per pull request, the live channel on main.
+# One-time setup: `firebase init hosting:github` (creates the service account secret
+# FIREBASE_SERVICE_ACCOUNT), set the project id in .firebaserc and below, and create the
+# `Production` environment. Until FIREBASE_SERVICE_ACCOUNT exists the deploy steps are skipped.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Never cancel a deploy mid-flight.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  FIREBASE_PROJECT: ${{ github.event.repository.name }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event_name == 'pull_request' && 'Preview' || 'Production' }}
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+      id-token: write
+    env:
+      FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v5
+      - run: mise run install
+      - run: mise run check
+      - run: mise run test
+      - run: mise run build
+
+      - name: Preview (pull requests from this repo)
+        if: env.FIREBASE_SA != '' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ env.FIREBASE_PROJECT }}
+
+      - name: Production (main)
+        if: env.FIREBASE_SA != '' && github.event_name != 'pull_request'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
+          projectId: ${{ env.FIREBASE_PROJECT }}
