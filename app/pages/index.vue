@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { greet } from '~/utils/greet'
 
-useSeoMeta({ title: 'template-web-nuxt', description: 'Nuxt app template with CI, Firebase and docs.' })
+useSeoMeta({
+  title: 'template-web-nuxt',
+  description: 'Nuxt app template with CI, Firebase and docs.',
+})
 const message = greet('world')
 </script>
 
