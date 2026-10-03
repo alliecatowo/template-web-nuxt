@@ -36,6 +36,12 @@ find . -depth \( -name "*$OLD_NAME*" -o -name "*$OLD_SNAKE*" \) -not -path './.g
   mv "$p" "$(dirname "$p")/$base"
 done
 
+# Dependabot auto-merge tags major bumps `major-update`, and labels do not copy from a
+# template, so create it up front (the auto-merge workflow also creates it on demand).
+if [[ "${INIT_NO_PUSH:-}" != 1 ]]; then
+  gh label create major-update --color D93F0B --description "Major version bump, needs a human" 2>/dev/null || true
+fi
+
 has_docs=0; [[ -f .github/workflows/docs.yml ]] && has_docs=1
 
 git config user.name "github-actions[bot]"
