@@ -198,8 +198,8 @@ importers:
         specifier: 10.13.0
         version: 10.13.0(jiti@2.7.0)(supports-color@10.2.2)
       firebase-tools:
-        specifier: 15.34.0
-        version: 15.34.0(@types/node@26.6.5)(supports-color@10.2.2)
+        specifier: 15.34.1
+        version: 15.34.1(@types/node@26.6.5)(supports-color@10.2.2)
       lefthook:
         specifier: 2.2.2
         version: 2.2.2
@@ -4019,8 +4019,8 @@ packages:
     resolution: {integrity: sha512-JGG8pvDi2C+JxidYdIwQDyS/CgcrIdh18cvgxcBge3wSHRQOrooMD3GlFBcmMJAN9M42SAZjDp5zv1dglJjwww==}
     engines: {node: '>=20'}
 
-  firebase-tools@15.34.0:
-    resolution: {integrity: sha512-Iv21U7tBtQVZloudPHVjeds/U2wqMEcNSLe318WrVo0gsOZjT/Nxp8jVWHCQUKu6HIdhFpZqkmhQCHD4HEDHuw==}
+  firebase-tools@15.34.1:
+    resolution: {integrity: sha512-guAlrL5NpupsD8g0EowinzeCdAcpgiK7KjZjUUle7PAWzyfX85p5xPsGjcpT+BcfLT8ozktOYm8Etw3aFFX3sg==}
     engines: {node: '>=20.0.0 || >=22.0.0 || >=24.0.0'}
     hasBin: true
 
@@ -10016,7 +10016,7 @@ snapshots:
 
   '@vue-macros/common@3.1.4(vue@3.5.44(typescript@6.0.3))':
     dependencies:
-      '@vue/compiler-sfc': 3.5.43
+      '@vue/compiler-sfc': 3.5.44
       ast-kit: 2.2.0
       local-pkg: 1.2.1
       magic-string-ast: 1.0.3
@@ -11680,7 +11680,7 @@ snapshots:
       locate-path: 8.0.0
       unicorn-magic: 0.3.0
 
-  firebase-tools@15.34.0(@types/node@26.6.5)(supports-color@10.2.2):
+  firebase-tools@15.34.1(@types/node@26.6.5)(supports-color@10.2.2):
     dependencies:
       '@electric-sql/pglite': 0.3.16
       '@electric-sql/pglite-tools': 0.2.21(@electric-sql/pglite@0.3.16)
@@ -11713,7 +11713,7 @@ snapshots:
       gaxios: 6.7.1(supports-color@10.2.2)
       glob: 10.5.0
       google-auth-library: 9.15.1(supports-color@10.2.2)
-      ignore: 7.0.11
+      ignore: 7.0.13
       js-yaml: 4.3.2
       jsonwebtoken: 9.0.3
       libsodium-wrappers: 0.7.16
@@ -15043,7 +15043,7 @@ snapshots:
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
-      postcss: 8.5.28
+      postcss: 8.5.31
       rolldown: 1.2.12
       tinyglobby: 0.2.17
     optionalDependencies:
